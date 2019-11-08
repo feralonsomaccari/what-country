@@ -17,19 +17,19 @@ const useStyles = makeStyles({
   }
 });
 
-export default function CountryCard(country) {
+export default function CountryCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={country.country.flag}
+          image={props.flag}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h2">
-            {country.country.name}
+            {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Lizards are a widespread group of squamate reptiles, with over 6,000
