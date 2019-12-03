@@ -7,44 +7,59 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { CARD_WIDTH, CARD_HEIGHT } from "../../constants/constants";
 
+let hex1= Math.floor(Math.random()*16777215).toString(16);
+let hex2= Math.floor(Math.random()*16777215).toString(16);
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: CARD_WIDTH,
+    maxHeight: CARD_HEIGHT,
+    minWidth: CARD_WIDTH,
+    minHeight: CARD_HEIGHT
+  },
+  contentCard:{
+    height: CARD_HEIGHT,
+    width:CARD_WIDTH,
+    
   },
   media: {
-    height: 140
+    height: 0,
+    paddingTop: '56.25%', // 16:9,
+    marginTop:'30'
   }
 });
 
 export default function CountryCard(props) {
+
   const classes = useStyles();
+  // if(props.loading){
+  //   return <h1>hola</h1>;
+  // }
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
+
+    
+    <Card style={props.style} className={classes.card}>
+      <CardActionArea className={classes.contentCard} >
         <CardMedia
           className={classes.media}
           image={props.flag}
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h2">
-            {props.name}
-          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          {props.name}
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <CardActions>
+       </CardActionArea>
+      {/*<CardActions>
         <Button size="small" color="primary">
           Share
         </Button>
         <Button size="small" color="primary">
           Learn More
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
