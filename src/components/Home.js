@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -18,15 +18,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Footer from "./Footer";
+import Details from "./Country/Details";
 
-import Countries from "./Country/Countries";
+import CountryList from "./Country/CountryList";
 
 const drawerWidth = 150;
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    height:"100%"
+    height: "100%"
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -75,7 +76,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     minHeight: "100%",
     marginBottom: "-160px",
-    paddingBottom: "160px",
+    paddingBottom: "200px"
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -86,10 +87,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Home() {
+export default function Home(props) {
+  // useEffect(() => {
+  //   console.log("useEffect");
+  //   return;
+  // }, [details]); // Wrong: name is missing in deps
+
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const [details, setDetails] = useState({
+    show: false,
+    flag: null,
+    name: "a",
+    positionTop: "50%",
+    positionLeft: "50%",
+    flagWidth: "1%",
+    flagHeight: "1%"
+  });
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -99,12 +114,53 @@ export default function Home() {
     setOpen(false);
   };
 
+  const selectCountry = (country, flagOriginPosition) => {
+    console.log(flagOriginPosition);
+    console.log("" +
+    (flagOriginPosition.top / window.document.body.clientHeight) * 100 +
+    "%");
+    console.log("" +
+    (flagOriginPosition.left / window.document.body.clientWidth) * 100 +
+    "%");
+    setDetails({
+      show: true,
+      flag: country.flag,
+      name: country.name,
+      positionTop:
+        "" +
+        (flagOriginPosition.top / window.document.body.clientHeight) * 100 +
+        "%",
+      positionLeft:
+        "" +
+        (flagOriginPosition.left / window.document.body.clientWidth) * 100 +
+        "%",
+      flagWidth:
+        "" +
+        (flagOriginPosition.width / window.document.body.clientWidth) * 100 +
+        "%",
+      flagHeight:
+        "" +
+        (flagOriginPosition.height / window.document.body.clientHeight) * 100 +
+        "%"
+    });
+  };
+  const deselectCountry = () => {
+    setDetails({
+      show: false,
+      flag: null,
+      name: null,
+      positionTop: "50%",
+      positionLeft: "50%",
+      flagWidth: "1%",
+      flagHeight: "1%"
+    });
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        boxShadow={0}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
@@ -127,7 +183,6 @@ export default function Home() {
         variant="persistent"
         anchor="left"
         open={open}
-        
         classes={{
           paper: classes.drawerPaper
         }}
@@ -159,15 +214,29 @@ export default function Home() {
           [classes.contentShift]: open
         })}
       >
-        <div className={(classes.mainContent)}>
+        <div className={classes.mainContent}>
           <div className={classes.drawerHeader} />
           <h1>What Country</h1>
           <Typography variant="body2" color="textSecondary" component="p">
             Search for any county or navigate till you find a cool looking flag
           </Typography>
-          <Countries></Countries>
+          <CountryList selectCountry={selectCountry}></CountryList>
         </div>
-        <Footer className={classes.footer}></Footer>
+        <Footer></Footer>
+        {details.show ? (
+          <Details
+            deselectCountry={deselectCountry}
+            flag={details.flag}
+            show={details.show}
+            positionTop={details.positionTop}
+            positionLeft={details.positionLeft}
+            flagWidth={details.flagWidth}
+            flagHeight={details.flagHeight}
+          ></Details>
+        ) : (
+          <div></div>
+        )}
+        
       </main>
     </div>
   );

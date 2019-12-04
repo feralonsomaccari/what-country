@@ -9,8 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { CARD_WIDTH, CARD_HEIGHT } from "../../constants/constants";
 
-let hex1= Math.floor(Math.random()*16777215).toString(16);
-let hex2= Math.floor(Math.random()*16777215).toString(16);
+
 const useStyles = makeStyles({
   card: {
     maxWidth: CARD_WIDTH,

@@ -9,6 +9,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import GetCountriesService from "../../services/country.service";
 
 const useStyles = makeStyles({
   row: {
@@ -18,9 +19,10 @@ const useStyles = makeStyles({
     minHeight: CARD_HEIGHT,
     display: "flex",
     justifyContent: "center",
-    margin: 5
+    margin: 5,
+    backgroundColor: "lightGray",
   },
-  test: {
+  countryButton: {
     backgroundRepeat: "no-repeat",
     backgroundPosition: " center center",
     maxWidth: CARD_WIDTH,
@@ -28,9 +30,10 @@ const useStyles = makeStyles({
     minWidth: CARD_WIDTH,
     minHeight: CARD_HEIGHT,
     backgroundSize: "50%, 50%",
-    textShadow: "1px 1px 1px rgba(0,0,0,.004)",
-
-    backgroundcolor: "transparent",
+    // backgroundSize: "cover",
+    cursor:"pointer",
+    backgroundColor: "lightGray",
+    // textShadow: "1px 1px 1px rgba(0,0,0,.004)",
     border: "none"
   },
   countryList: {
@@ -40,17 +43,42 @@ const useStyles = makeStyles({
 
 function CountryList(props) {
   const classes = useStyles();
+  const [countriesJson, setCountriesJson] = useState([]);
   const [filter, setFilter] = useState("");
-  let countries = props.countries.filter(
+
+  // Like ComponentDidMount
+  useEffect(() => {
+    getCountries();
+  }, []);
+
+
+  const getCountries = () => {
+    let countriesPromise = new Promise((resolve, reject) => {
+      GetCountriesService("", resolve, reject);
+    });
+
+    countriesPromise
+      .then(response => {
+        setCountriesJson(response);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  if (!countriesJson.length) {
+    return <div />;
+  }
+
+ 
+  let countries = countriesJson.filter(
     (country) => {
       return country.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
     }
   );
-  let countriesLen = countries.length;
-
   
-  const openCountry = (country) =>{
-    console.log("abiert");
+  const openCountry = (country, element) =>{
+    props.selectCountry(country, element.getBoundingClientRect());
   }
 
   return (
@@ -94,13 +122,13 @@ function CountryList(props) {
                         flag={country.flag}
                         nativeName={country.nativeName}
                       ></Country> */}
-
                       <button
                         type="button"
-                        className={classes.test}
-                        onClick={(country) => openCountry}
+                        className={classes.countryButton}
+                        onClick={(e) => openCountry(country, e.target)}
                         style={{ backgroundImage: `url(${country.flag})` }}
                       ></button>
+                      
                     </GridListTile>
                   );
                 } else {
