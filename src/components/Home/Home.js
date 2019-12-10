@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,93 +17,25 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import Footer from "./Footer";
-import Details from "./Country/Details";
+import Footer from "../Footer/Footer";
+import Details from "../Country/CountryDetails";
 
-import CountryList from "./Country/CountryList";
+import CountryList from "../Country/CountryList";
+import { HomeStyles } from "./HomeStyles";
 
-const drawerWidth = 150;
+const useStyles = HomeStyles;
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    height: "100%"
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  hide: {
-    display: "none"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
-  },
-  content: {
-    flexGrow: 1,
-
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: -drawerWidth
-  },
-  mainContent: {
-    padding: theme.spacing(3),
-    minHeight: "100%",
-    marginBottom: "-160px",
-    paddingBottom: "200px"
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: 0
-  }
-}));
-
-export default function Home(props) {
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   return;
-  // }, [details]); // Wrong: name is missing in deps
-
+export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const [details, setDetails] = useState({
     show: false,
     flag: null,
-    name: "a",
-    positionTop: "50%",
-    positionLeft: "50%",
-    flagWidth: "1%",
-    flagHeight: "1%"
+    name: "",
+    flagWidth: "0%",
+    flagHeight: "0%",
+    elementId: ""
   });
 
   const handleDrawerOpen = () => {
@@ -114,46 +46,40 @@ export default function Home(props) {
     setOpen(false);
   };
 
-  const selectCountry = (country, flagOriginPosition) => {
-    console.log(flagOriginPosition);
-    console.log("" +
-    (flagOriginPosition.top / window.document.body.clientHeight) * 100 +
-    "%");
-    console.log("" +
-    (flagOriginPosition.left / window.document.body.clientWidth) * 100 +
-    "%");
+  const selectCountry = (country, flagOriginPosition, elementId) => {
     setDetails({
       show: true,
-      flag: country.flag,
-      name: country.name,
-      positionTop:
-        "" +
-        (flagOriginPosition.top / window.document.body.clientHeight) * 100 +
-        "%",
-      positionLeft:
-        "" +
-        (flagOriginPosition.left / window.document.body.clientWidth) * 100 +
-        "%",
-      flagWidth:
-        "" +
-        (flagOriginPosition.width / window.document.body.clientWidth) * 100 +
-        "%",
-      flagHeight:
-        "" +
-        (flagOriginPosition.height / window.document.body.clientHeight) * 100 +
-        "%"
+      country: country,
+      elementId: elementId,
+      flagWidth: flagOriginPosition.width,
+      flagHeight: flagOriginPosition.height,
+      // flagWidth:
+      //   "" +
+      //   (flagOriginPosition.width / window.document.body.clientWidth) * 100 +
+      //   "%",
+      // flagHeight:
+      //   "" +
+      //   (flagOriginPosition.height / window.document.body.clientHeight) * 100 +
+      //   "%"
     });
+    
+    // hideOverflow();
   };
   const deselectCountry = () => {
     setDetails({
       show: false,
       flag: null,
-      name: null,
-      positionTop: "50%",
-      positionLeft: "50%",
-      flagWidth: "1%",
-      flagHeight: "1%"
+      name: "",
+      flagWidth: "0%",
+      flagHeight: "0%",
+      elementId: ""
     });
+  };
+  const hideOverflow = () => {
+    document.body.style.overflow = "hidden";
+  };
+  const showOverflow = () => {
+    document.body.style.overflow = "unset";
   };
 
   return (
@@ -216,27 +142,31 @@ export default function Home(props) {
       >
         <div className={classes.mainContent}>
           <div className={classes.drawerHeader} />
-          <h1>What Country</h1>
+          <Typography variant="h4" color="textSecondary">
+          What Country
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Search for any county or navigate till you find a cool looking flag
           </Typography>
-          <CountryList selectCountry={selectCountry}></CountryList>
+          <CountryList
+            selectCountry={selectCountry}
+            hideOverflow={hideOverflow}
+          ></CountryList>
         </div>
         <Footer></Footer>
         {details.show ? (
           <Details
             deselectCountry={deselectCountry}
-            flag={details.flag}
+            showOverflow={showOverflow}
+            country={details.country}
             show={details.show}
-            positionTop={details.positionTop}
-            positionLeft={details.positionLeft}
             flagWidth={details.flagWidth}
             flagHeight={details.flagHeight}
+            elementId={details.elementId}
           ></Details>
         ) : (
-          <div></div>
+          null
         )}
-        
       </main>
     </div>
   );

@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Home from "./components/Home";
-import Details from "./components/Country/Details";
+import React from "react";
+import Home from "./components/Home/Home";
+import MainTheme from "./themes/MainTheme";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 function App() {
   return (
     <div id="app">
-      {/* <div className="coso"></div> */}
-      <Home></Home>
+      <ThemeProvider theme={MainTheme}>
+        <Home></Home>
+      </ThemeProvider>
     </div>
   );
 }

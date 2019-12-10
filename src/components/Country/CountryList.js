@@ -1,56 +1,26 @@
 import React, { useState, useEffect } from "react";
-import Country from "./Country";
-import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridList";
-import { CARD_WIDTH, CARD_HEIGHT } from "../../constants/constants";
 import VisibilitySensor from "react-visibility-sensor";
-
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import GetCountriesService from "../../services/country.service";
+import Country from "./CountryCard";
+import Filter from "./CountryFilter";
+import { CountryListStyles } from "./CountryStyles";
 
-const useStyles = makeStyles({
-  row: {
-    maxWidth: CARD_WIDTH,
-    maxHeight: CARD_HEIGHT,
-    minWidth: CARD_WIDTH,
-    minHeight: CARD_HEIGHT,
-    display: "flex",
-    justifyContent: "center",
-    margin: 5,
-    backgroundColor: "lightGray",
-  },
-  countryButton: {
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: " center center",
-    maxWidth: CARD_WIDTH,
-    maxHeight: CARD_HEIGHT,
-    minWidth: CARD_WIDTH,
-    minHeight: CARD_HEIGHT,
-    backgroundSize: "50%, 50%",
-    // backgroundSize: "cover",
-    cursor:"pointer",
-    backgroundColor: "lightGray",
-    // textShadow: "1px 1px 1px rgba(0,0,0,.004)",
-    border: "none"
-  },
-  countryList: {
-    justifyContent: "center"
-  }
-});
+const useStyles = CountryListStyles;
 
 function CountryList(props) {
   const classes = useStyles();
   const [countriesJson, setCountriesJson] = useState([]);
   const [filter, setFilter] = useState("");
 
-  // Like ComponentDidMount
-  useEffect(() => {
-    getCountries();
-  }, []);
+  const openCountry = (country, element) => {
+    props.selectCountry(country, element.getBoundingClientRect(), element.id);
+  };
 
+  let countries = countriesJson.filter(country => {
+    return country.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
+  });
 
   const getCountries = () => {
     let countriesPromise = new Promise((resolve, reject) => {
@@ -59,6 +29,7 @@ function CountryList(props) {
 
     countriesPromise
       .then(response => {
+        console.log(response);
         setCountriesJson(response);
       })
       .catch(e => {
@@ -66,74 +37,30 @@ function CountryList(props) {
       });
   };
 
-  if (!countriesJson.length) {
-    return <div />;
-  }
-
- 
-  let countries = countriesJson.filter(
-    (country) => {
-      return country.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
-    }
-  );
-  
-  const openCountry = (country, element) =>{
-    props.selectCountry(country, element.getBoundingClientRect());
-  }
+  // Like ComponentDidMount
+  useEffect(() => {
+    getCountries();
+  }, []);
 
   return (
     <div>
-      <Grid container component="main">
-        <CssBaseline />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="country"
-          label="Country"
-          name="country"
-          autoComplete="filter"
-          value={filter}
-          onChange={e => setFilter(e.target.value)}
-          autoFocus
-        ></TextField>
-      </Grid>
-      <GridList
-        cellHeight={160}
-        className={(classes.gridList, classes.countryList)}
-        cols={3}
-      >
+      <Filter filter={filter} setFilter={setFilter}></Filter>
+      <hr/>
+      <GridList cellHeight={160} className={classes.countryList}>
         {countries.map((country, i) => (
-          <div
-            key={i}
-            className={classes.row}
-            // style={{ background: "linear-gradient(90deg, #"+Math.floor(Math.random()*16777215).toString(16)+" 50%, #"+Math.floor(Math.random()*16777215).toString(16)+" 50%)" }}
-          >
+          <div key={i} className={classes.row}>
             <VisibilitySensor partialVisibility>
               {({ isVisible }) => {
-                if (isVisible) {
-                  return (
-                    <GridListTile key={i} cols={i}>
-                      {/* <Country
-                        key={country.alpha2Code}
-                        num={i}
-                        name={country.name}
-                        flag={country.flag}
-                        nativeName={country.nativeName}
-                      ></Country> */}
-                      <button
-                        type="button"
-                        className={classes.countryButton}
-                        onClick={(e) => openCountry(country, e.target)}
-                        style={{ backgroundImage: `url(${country.flag})` }}
-                      ></button>
-                      
-                    </GridListTile>
-                  );
-                } else {
-                  return <p>.</p>;
-                }
+                return isVisible ? (
+                  <GridListTile>
+                    <Country
+                      country={country}
+                      openCountry={openCountry}
+                    ></Country>
+                  </GridListTile>
+                ) : (
+                  <p>.</p>
+                );
               }}
             </VisibilitySensor>
           </div>
@@ -145,16 +72,14 @@ function CountryList(props) {
 
 export default CountryList;
 
-{
-  /* <div>
-            <GridList cols={5} cellHeight="auto" spacing={25}>
-
-                {drawItems.map((country, i) => (
-                    <GridListTile key={i}>
-                        <CountryCard key={country.alpha2Code} num={i} name={country.name} flag={country.flag} ></CountryCard>
-                    </GridListTile>
-                    
-                ))}
-            </GridList>
-        </div> */
-}
+/* Basic method of Listing the Json of Countries, this is simple but very slow
+  <div>
+    <GridList cols={5} cellHeight="auto" spacing={25}>
+      {drawItems.map((country, i) => (
+        <GridListTile key={i}>
+          <CountryCard key={country.alpha2Code} num={i} name={country.name} flag={country.flag} ></CountryCard>
+        </GridListTile>
+      ))}
+    </GridList>
+  </div> 
+*/

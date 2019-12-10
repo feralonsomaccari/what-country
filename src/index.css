@@ -12,15 +12,19 @@ code {
     monospace;
 } */
 
-
 html {
-  font-family: sans-serif;
-  font-size: 12px;
+  /* font-family: sans-serif; */
+  /* font-size: 12px; */
 }
 
-body,html,#root,#app{
+body,
+html,
+#root,
+#app {
   height: 100%;
-
+}
+header{
+  z-index: 1299;
 }
 
 .invisibleRow {
@@ -30,38 +34,33 @@ body,html,#root,#app{
   display: block;
 }
 
-.wraper{
+.wraper {
   min-height: 100%;
   margin-bottom: -160px;
-    padding-bottom: 160px;
+  padding-bottom: 160px;
 }
 
-
-#footer{
+#footer {
   height: 160px;
-    font-size: 13px;
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
-    transition: transform .2s ease-in-out,-webkit-transform .2s ease-in-out;
-    background-color: #a040a0;
-    color: #fff;
-}
-
-
-#footer a {
+  font-size: 13px;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  background-color: #a040a0;
   color: #fff;
-  text-decoration: underline;
-}
-.footerLegend{
   margin-right: auto;
   margin-left: auto;
   padding: 15px;
 }
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
 
-.countryDetailsContanier{
+.countryDetailsContanier {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -69,39 +68,48 @@ body,html,#root,#app{
   right: 0;
   z-index: 1300;
 }
-.countryDetails{
-  /* background: linear-gradient(90deg, rgb(120, 200, 80) 50%, rgb(160, 64, 160) 50%); */
-  transform: translate(-50%, -50%);
+.countryDetails {
+  z-index: 1304;
   position: absolute;
-  z-index: 1301;
-
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.countrySpan{
+.countryDetailsPanel {
+  overflow-y: scroll;
+  max-width: 600px;
+  height: 1300px;
+  background: #fff;
+  z-index: 1302;
+  margin: 90px auto;
+  right: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.countryDetailsArrow {
+  color: #fff;
+}
+.countryDetailsTitle {
+  text-align: center;
+  color: #fff;
+}
+
+
+
+.countrySpan {
   color: #fff;
   font-size: 14px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
   left: 0;
   right: 0;
   z-index: 20;
   text-align: center;
   pointer-events: none;
   position: absolute;
-    bottom: 0;
+  bottom: 0;
 }
 
-.MuiGridList-root{
+.MuiGridList-root {
   position: relative;
 }
 
-/*
-52.0755960074913%
-49.36339684443386%
-*/
-.coso{
-  height: 160px;
-  width: 160px;
-
-  background-color: red;
-  position: absolute;
-  z-index: 9999;
-}
