@@ -64,7 +64,7 @@ function Details(props) {
     config: { velocity: 15 },
     onRest: () => {
       if (resetAnimation) {
-        props.deselectCountry();
+        props.unselectCountry();
       }
     }
   });
@@ -88,6 +88,7 @@ function Details(props) {
     setArrowDelay(0);
   };
 
+
   return (
     <div className="countryDetailsContanier">
       {/* <animated.div
@@ -108,7 +109,7 @@ function Details(props) {
           </Typography>
         </animated.div>
 
-        <CountryDetailsPanel country={props.country} changeCardPosition={changeCardPosition}></CountryDetailsPanel>
+        <CountryDetailsPanel country={props.country} changeCardPosition={changeCardPosition} getBordersCountries={props.getBordersCountries} ></CountryDetailsPanel>
       </animated.div>
     </div>
   );

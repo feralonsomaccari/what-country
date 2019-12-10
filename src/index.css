@@ -75,15 +75,17 @@ header{
   background-position: center center;
 }
 .countryDetailsPanel {
-  overflow-y: scroll;
   max-width: 600px;
-  height: 1300px;
+  height: 85%;
   background: #fff;
   z-index: 1302;
-  margin: 90px auto;
+  margin-left: auto;
+  margin-right: auto;
   right: 10px;
   left: 10px;
+  bottom: 0%;
   position: absolute;
+  display: grid;
 }
 
 .countryDetailsArrow {

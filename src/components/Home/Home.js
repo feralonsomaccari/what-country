@@ -18,9 +18,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Footer from "../Footer/Footer";
-import Details from "../Country/CountryDetails";
 
-import CountryList from "../Country/CountryList";
+import CountryContainer from "../Country/CountryContainer";
 import { HomeStyles } from "./HomeStyles";
 
 const useStyles = HomeStyles;
@@ -29,14 +28,6 @@ export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [details, setDetails] = useState({
-    show: false,
-    flag: null,
-    name: "",
-    flagWidth: "0%",
-    flagHeight: "0%",
-    elementId: ""
-  });
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -46,35 +37,6 @@ export default function Home() {
     setOpen(false);
   };
 
-  const selectCountry = (country, flagOriginPosition, elementId) => {
-    setDetails({
-      show: true,
-      country: country,
-      elementId: elementId,
-      flagWidth: flagOriginPosition.width,
-      flagHeight: flagOriginPosition.height,
-      // flagWidth:
-      //   "" +
-      //   (flagOriginPosition.width / window.document.body.clientWidth) * 100 +
-      //   "%",
-      // flagHeight:
-      //   "" +
-      //   (flagOriginPosition.height / window.document.body.clientHeight) * 100 +
-      //   "%"
-    });
-    
-    // hideOverflow();
-  };
-  const deselectCountry = () => {
-    setDetails({
-      show: false,
-      flag: null,
-      name: "",
-      flagWidth: "0%",
-      flagHeight: "0%",
-      elementId: ""
-    });
-  };
   const hideOverflow = () => {
     document.body.style.overflow = "hidden";
   };
@@ -143,30 +105,14 @@ export default function Home() {
         <div className={classes.mainContent}>
           <div className={classes.drawerHeader} />
           <Typography variant="h4" color="textSecondary">
-          What Country
+            What Country
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Search for any county or navigate till you find a cool looking flag
           </Typography>
-          <CountryList
-            selectCountry={selectCountry}
-            hideOverflow={hideOverflow}
-          ></CountryList>
+          <CountryContainer></CountryContainer>
         </div>
         <Footer></Footer>
-        {details.show ? (
-          <Details
-            deselectCountry={deselectCountry}
-            showOverflow={showOverflow}
-            country={details.country}
-            show={details.show}
-            flagWidth={details.flagWidth}
-            flagHeight={details.flagHeight}
-            elementId={details.elementId}
-          ></Details>
-        ) : (
-          null
-        )}
       </main>
     </div>
   );

@@ -43,7 +43,11 @@ export const CountryDetailsStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   contentPanel: {
+    overflowY: "scroll",
+    paddingBottom: "30px",
+    height: "100%",
     padding: theme.spacing(2),
+    backgroundColor: "#fff",
   },
   separator: {
     width: "100%",
@@ -52,11 +56,24 @@ export const CountryDetailsStyles = makeStyles(theme => ({
     justifyContent: "center",
     backgroundColor: theme.palette.primary.main
   },
-  section1: {
+  flexSection: {
     display: "flex",
   },
   item: {
     width: "100%",
     paddingLeft: theme.spacing(4)
+  },
+  borderCountriesContainer:{
+    display:"flex",
+    justifyContent: "center",
+    padding: theme.spacing(2),
+    flexWrap: "wrap",
+  },
+  container:{
+     marginTop: theme.spacing(2),
+     overflowWrap: "break-word",
+  },
+  borderCountry:{
+    margin: theme.spacing(2),
   }
 }));
