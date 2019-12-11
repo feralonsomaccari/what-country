@@ -1,22 +1,3 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
-
-html {
-  /* font-family: sans-serif; */
-  /* font-size: 12px; */
-}
-
 body,
 html,
 #root,
@@ -27,20 +8,7 @@ header{
   z-index: 1299;
 }
 
-.invisibleRow {
-  display: none;
-}
-.visibleRow {
-  display: block;
-}
-
-.wraper {
-  min-height: 100%;
-  margin-bottom: -160px;
-  padding-bottom: 160px;
-}
-
-#footer {
+footer {
   height: 160px;
   font-size: 13px;
   -webkit-transform: translate(0, 0);
@@ -55,63 +23,7 @@ header{
   margin-left: auto;
   padding: 15px;
 }
-#footer a {
+footer a {
   color: #fff;
   text-decoration: underline;
 }
-
-.countryDetailsContanier {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1300;
-}
-.countryDetails {
-  z-index: 1304;
-  position: absolute;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.countryDetailsPanel {
-  max-width: 600px;
-  height: 85%;
-  background: #fff;
-  z-index: 1302;
-  margin-left: auto;
-  margin-right: auto;
-  right: 10px;
-  left: 10px;
-  bottom: 0%;
-  position: absolute;
-  display: grid;
-}
-
-.countryDetailsArrow {
-  color: #fff;
-}
-.countryDetailsTitle {
-  text-align: center;
-  color: #fff;
-}
-
-
-
-.countrySpan {
-  color: #fff;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.5);
-  left: 0;
-  right: 0;
-  z-index: 20;
-  text-align: center;
-  pointer-events: none;
-  position: absolute;
-  bottom: 0;
-}
-
-.MuiGridList-root {
-  position: relative;
-}
-

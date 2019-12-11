@@ -15,10 +15,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import Footer from "../Footer/Footer";
 
+import Footer from "../Footer/Footer";
 import CountryContainer from "../Country/CountryContainer";
 import { HomeStyles } from "./HomeStyles";
 
@@ -35,13 +34,6 @@ export default function Home() {
 
   const handleDrawerClose = () => {
     setOpen(false);
-  };
-
-  const hideOverflow = () => {
-    document.body.style.overflow = "hidden";
-  };
-  const showOverflow = () => {
-    document.body.style.overflow = "unset";
   };
 
   return (
@@ -76,7 +68,9 @@ export default function Home() {
         }}
       >
         <div className={classes.drawerHeader}>
-          What Country
+          <Typography variant="caption" noWrap>
+            What Country
+          </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -87,14 +81,12 @@ export default function Home() {
         </div>
         <Divider />
         <List>
-          {["Country", "About"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button key="About">
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary="About" />
+          </ListItem>
         </List>
       </Drawer>
       <main
@@ -104,6 +96,7 @@ export default function Home() {
       >
         <div className={classes.mainContent}>
           <div className={classes.drawerHeader} />
+
           <Typography variant="h4" color="textSecondary">
             What Country
           </Typography>

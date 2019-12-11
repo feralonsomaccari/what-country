@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { CountryDetailsStyles } from "../CountryStyles";
+import { CountryPanelStyles } from "../CountryStyles";
 import Typography from "@material-ui/core/Typography";
 import CountryCard from "../CountryCard";
 import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = CountryDetailsStyles;
+const useStyles = CountryPanelStyles;
 
 function CountryDetailsPanel(props) {
   const classes = useStyles();
@@ -49,6 +49,7 @@ function CountryDetailsPanel(props) {
             Languages:
             {props.country.languages.map((language, i) => (
               <span key={i}>
+                {" "}
                 {language.name}
                 {i < props.country.languages.length - 1 ? "," : ""}
               </span>
@@ -59,7 +60,7 @@ function CountryDetailsPanel(props) {
 
       {/* BORDERS */}
       <div className={classes.separator}>
-        <Typography variant="h6" className="countryDetailsTitle">
+        <Typography variant="subtitle1" align="center">
           Borders
         </Typography>
       </div>
@@ -80,7 +81,7 @@ function CountryDetailsPanel(props) {
 
       {/* MISCELLANEOUS INFO */}
       <div className={classes.separator}>
-        <Typography variant="h6" className="countryDetailsTitle">
+        <Typography variant="subtitle1" align="center">
           Miscellaneous info
         </Typography>
       </div>
@@ -93,6 +94,7 @@ function CountryDetailsPanel(props) {
           Timezones:
           {props.country.timezones.map((timezone, i) => (
             <span key={i}>
+              {" "}
               {timezone}
               {i < props.country.timezones.length - 1 ? "," : ""}
             </span>

@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from "react";
 import GetCountriesService from "../../services/country.service";
 import CountryList from "./CountryList";
-import CountryDetails from "./CountryDetails";
+import CountryPanel from "./Panel/CountryPanel";
 
 function CountryContainer() {
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState({
-    show: false,
-    flag: null,
-    name: "",
-    flagWidth: "0%",
-    flagHeight: "0%",
-    elementId: ""
-  });
+  const [selectedCountry, setSelectedCountry] = useState({});
 
   const getCountries = () => {
     let countriesPromise = new Promise((resolve, reject) => {
       GetCountriesService("", resolve, reject);
     });
     countriesPromise.then(response => {
-        console.log(response);
       setCountries(response);
     });
   };
@@ -28,26 +20,19 @@ function CountryContainer() {
     setSelectedCountry({
       show: true,
       country: country,
-      elementId: elementId,
-      flagWidth: flagOriginPosition.width,
-      flagHeight: flagOriginPosition.height
+      elementId: elementId
     });
   };
   const unselectCountry = () => {
-    setSelectedCountry({
-      show: false,
-      flag: null,
-      name: "",
-      flagWidth: "0%",
-      flagHeight: "0%",
-      elementId: ""
-    });
+    setSelectedCountry({});
   };
 
-  const getBordersCountries = (alpha3Code) => {
-    let borderCountry = countries.filter((country) => country.alpha3Code.includes(alpha3Code));
+  const getBordersCountries = alpha3Code => {
+    let borderCountry = countries.filter(country =>
+      country.alpha3Code.includes(alpha3Code)
+    );
     return borderCountry[0];
-  }
+  };
 
   // Like ComponentDidMount
   useEffect(() => {
@@ -60,8 +45,8 @@ function CountryContainer() {
         countries={countries}
         selectCountry={selectCountry}
       ></CountryList>
-      {selectedCountry.show ? (
-        <CountryDetails
+      {selectedCountry.show && (
+        <CountryPanel
           unselectCountry={unselectCountry}
           getBordersCountries={getBordersCountries}
           country={selectedCountry.country}
@@ -69,15 +54,15 @@ function CountryContainer() {
           flagWidth={selectedCountry.flagWidth}
           flagHeight={selectedCountry.flagHeight}
           elementId={selectedCountry.elementId}
-        ></CountryDetails>
-      ) : null}
+        ></CountryPanel>
+      )}
     </div>
   );
 }
 
 export default CountryContainer;
 
-/* Basic method of Listing the Json of Countries, this is simple but very slow
+/* Basic method of Listing the Json of Countries, this is simple but very slow, the idea is to replace this
   <div>
     <GridList cols={5} cellHeight="auto" spacing={25}>
       {drawItems.map((country, i) => (
