@@ -81,7 +81,8 @@ export default function Home() {
         </div>
         <Divider />
         <List>
-          <ListItem button key="About">
+          <ListItem button key="About" component="a" href="https://github.com/feralonsomaccari/what-country" target="_blank"
+            rel="noopener noreferrer">
             <ListItemIcon>
               <MailIcon />
             </ListItemIcon>
