@@ -13,10 +13,10 @@ function CountryDetailsPanel(props) {
   useEffect(() => {
     let borderArray = [];
     props.country.borders.map(border => {
-      borderArray.push(props.getBordersCountries(border));
+      return borderArray.push(props.getBordersCountries(border));
     });
     setBorders(borderArray);
-  }, []);
+  }, [props]);
 
   return (
     <div className={classes.contentPanel}>
