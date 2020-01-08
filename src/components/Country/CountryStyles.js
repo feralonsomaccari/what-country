@@ -10,7 +10,7 @@ export const CountryListStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     margin: theme.spacing(1),
-    backgroundColor: "lightGray"
+    backgroundColor: "#f2f2f2",
   },
   countryList: {
     justifyContent: "center"
@@ -25,11 +25,16 @@ export const CountryCardStyles = makeStyles({
     maxHeight: CARD_HEIGHT,
     minWidth: CARD_WIDTH,
     minHeight: CARD_HEIGHT,
-    backgroundSize: "50%, 50%",
-    // backgroundSize: "contain",
+    backgroundSize: "75%",
     cursor: "pointer",
-    backgroundColor: "lightGray",
-    border: "none"
+    backgroundColor: "#f2f2f2",
+    border: "none",
+    "&:focus":{
+      outline:"none",
+    },
+    "&:active":{
+      backgroundColor:"#eeeeee"
+    }
   }
 });
 
