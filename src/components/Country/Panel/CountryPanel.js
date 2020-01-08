@@ -36,7 +36,7 @@ function Details(props) {
           <IconButton onClick={resetAnimationInverted} >
             <ArrowBackIcon fontSize="large" className={classes.arrowBack}/>
           </IconButton>
-          <Typography variant="h6" className="{classes.title}">
+          <Typography variant="h6" className={classes.title}>
             {props.country.name}
           </Typography>
         </div>

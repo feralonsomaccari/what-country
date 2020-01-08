@@ -49,8 +49,8 @@ export const CountryPanelStyles = makeStyles(theme => ({
     zIndex: "1302",
     marginLeft: "auto",
     marginRight: "auto",
-    right: "10px",
-    left: "10px",
+    right: "1rem",
+    left: "1rem",
     bottom: "0%",
     position: "absolute",
     display: "grid"
@@ -59,16 +59,21 @@ export const CountryPanelStyles = makeStyles(theme => ({
     position: "relative",
     zindex: "1303",
     background: theme.palette.primary.main,
-    display: "flex",
     alignItems: "center",
     color: "#fff"
   },
   arrowBack: {
-    color: "#fff"
+    color: "#fff",
+    display: "inline-block",
+    verticalAlign: "middle",
+  },
+  title:{
+    display: "inline-block",
+    verticalAlign: "middle",
   },
   contentPanel: {
     overflowY: "scroll",
-    paddingBottom: "30px",
+    paddingBottom: "2rem",
     height: "100%",
     padding: theme.spacing(2),
     backgroundColor: "#fff"
@@ -99,5 +104,5 @@ export const CountryPanelStyles = makeStyles(theme => ({
   },
   borderCountry: {
     margin: theme.spacing(2)
-  }
+  },
 }));
