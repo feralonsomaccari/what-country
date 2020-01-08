@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 
 function Filter(props) {
   return (
-    <div>
+    <>
       <Grid container component="main">
         <TextField
           variant="outlined"
@@ -19,7 +19,7 @@ function Filter(props) {
           autoFocus
         ></TextField>
       </Grid>
-    </div>
+    </>
   );
 }
 

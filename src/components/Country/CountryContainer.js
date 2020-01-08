@@ -40,7 +40,7 @@ function CountryContainer() {
   }, []);
 
   return (
-    <div>
+    <>
       <CountryList
         countries={countries}
         selectCountry={selectCountry}
@@ -56,7 +56,7 @@ function CountryContainer() {
           elementId={selectedCountry.elementId}
         ></CountryPanel>
       )}
-    </div>
+    </>
   );
 }
 

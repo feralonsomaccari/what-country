@@ -23,7 +23,7 @@ function CountryList(props) {
   });
 
   return (
-    <div>
+    <>
       <Filter filter={filter} setFilter={setFilter}></Filter>
       <hr />
       <GridList cellHeight={160} className={classes.countryList}>
@@ -46,7 +46,7 @@ function CountryList(props) {
           </div>
         ))}
       </GridList>
-    </div>
+    </>
   );
 }
 
