@@ -46,13 +46,7 @@ export default function Home() {
         })}
       >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
+          <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap></Typography>
@@ -71,18 +65,11 @@ export default function Home() {
           <Typography variant="caption" noWrap>
             What Country
           </Typography>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
+          <IconButton onClick={handleDrawerClose}>{theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
         </div>
         <Divider />
         <List>
-          <ListItem button key="About" component="a" href="https://github.com/feralonsomaccari/what-country" target="_blank"
-            rel="noopener noreferrer">
+          <ListItem button key="About" component="a" href="https://github.com/feralonsomaccari/what-country" target="_blank" rel="noopener noreferrer">
             <ListItemIcon>
               <MailIcon />
             </ListItemIcon>

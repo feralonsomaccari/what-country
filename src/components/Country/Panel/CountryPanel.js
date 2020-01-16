@@ -33,17 +33,14 @@ function Details(props) {
     <div className={classes.panel}>
       <animated.div className={classes.panelContainer} style={panelAnimation}>
         <div className={classes.head}>
-          <IconButton onClick={resetAnimationInverted} >
-            <ArrowBackIcon fontSize="large" className={classes.arrowBack}/>
+          <IconButton onClick={resetAnimationInverted}>
+            <ArrowBackIcon fontSize="large" className={classes.arrowBack} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             {props.country.name}
           </Typography>
         </div>
-        <CountryPanelDetails
-          country={props.country}
-          getBordersCountries={props.getBordersCountries}
-        ></CountryPanelDetails>
+        <CountryPanelDetails country={props.country} getBordersCountries={props.getBordersCountries}></CountryPanelDetails>
       </animated.div>
     </div>
   );

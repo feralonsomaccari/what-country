@@ -67,12 +67,7 @@ function CountryDetailsPanel(props) {
       {props.country.borders.length ? (
         <div className={classes.borderCountriesContainer}>
           {borders.map((border, i) => (
-            <Avatar
-              title={border.name}
-              src={border.flag}
-              className={`${classes.bigAvatar} ${classes.borderCountry}`}
-              key={i}
-            />
+            <Avatar title={border.name} src={border.flag} className={`${classes.bigAvatar} ${classes.borderCountry}`} key={i} />
           ))}
         </div>
       ) : (

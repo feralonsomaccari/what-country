@@ -10,7 +10,7 @@ export const CountryListStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     margin: theme.spacing(1),
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#f2f2f2"
   },
   countryList: {
     justifyContent: "center"
@@ -29,11 +29,11 @@ export const CountryCardStyles = makeStyles({
     cursor: "pointer",
     backgroundColor: "#f2f2f2",
     border: "none",
-    "&:focus":{
-      outline:"none",
+    "&:focus": {
+      outline: "none"
     },
-    "&:active":{
-      backgroundColor:"#eeeeee"
+    "&:active": {
+      backgroundColor: "#eeeeee"
     }
   }
 });
@@ -70,11 +70,11 @@ export const CountryPanelStyles = makeStyles(theme => ({
   arrowBack: {
     color: "#fff",
     display: "inline-block",
-    verticalAlign: "middle",
+    verticalAlign: "middle"
   },
-  title:{
+  title: {
     display: "inline-block",
-    verticalAlign: "middle",
+    verticalAlign: "middle"
   },
   contentPanel: {
     overflowY: "scroll",
@@ -109,5 +109,5 @@ export const CountryPanelStyles = makeStyles(theme => ({
   },
   borderCountry: {
     margin: theme.spacing(2)
-  },
+  }
 }));

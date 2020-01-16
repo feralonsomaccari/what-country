@@ -28,9 +28,7 @@ function CountryContainer() {
   };
 
   const getBordersCountries = alpha3Code => {
-    let borderCountry = countries.filter(country =>
-      country.alpha3Code.includes(alpha3Code)
-    );
+    let borderCountry = countries.filter(country => country.alpha3Code.includes(alpha3Code));
     return borderCountry[0];
   };
 
@@ -41,10 +39,7 @@ function CountryContainer() {
 
   return (
     <>
-      <CountryList
-        countries={countries}
-        selectCountry={selectCountry}
-      ></CountryList>
+      <CountryList countries={countries} selectCountry={selectCountry}></CountryList>
       {selectedCountry.show && (
         <CountryPanel
           unselectCountry={unselectCountry}

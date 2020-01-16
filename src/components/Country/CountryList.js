@@ -33,10 +33,7 @@ function CountryList(props) {
               {({ isVisible }) => {
                 return isVisible ? (
                   <GridListTile>
-                    <Country
-                      country={country}
-                      openCountry={openCountry}
-                    ></Country>
+                    <Country country={country} openCountry={openCountry}></Country>
                   </GridListTile>
                 ) : (
                   <p>.</p>
