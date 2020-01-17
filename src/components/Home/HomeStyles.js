@@ -52,8 +52,8 @@ export const HomeStyles = makeStyles(theme => ({
   mainContent: {
     padding: theme.spacing(3),
     minHeight: "100%",
-    marginBottom: "-160px",
-    paddingBottom: "200px"
+    marginBottom: "-10rem",
+    paddingBottom: "12rem"
   },
   contentShift: {
     transition: theme.transitions.create("margin", {

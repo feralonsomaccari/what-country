@@ -48,7 +48,7 @@ export const CountryPanelStyles = makeStyles(theme => ({
     zIndex: "1300"
   },
   panelContainer: {
-    maxWidth: "600px",
+    maxWidth: "38rem",
     height: "85%",
     background: "#fff",
     zIndex: "1302",

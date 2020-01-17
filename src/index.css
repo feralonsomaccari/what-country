@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -8,24 +8,17 @@ html,
 #app {
   height: 100%;
 }
-header{
-  z-index: 1299;
-}
 
 footer {
-  height: 160px;
-  font-size: 13px;
+  height: 10rem;
+  font-size: 0.8rem;
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   background-color: #a040a0;
   color: #fff;
   margin-right: auto;
   margin-left: auto;
-  padding: 15px;
+  padding: 1rem;
 }
 footer a {
   color: #fff;
