@@ -15,7 +15,7 @@ function Details(props) {
 
   const panelAnimation = useSpring({
     transform: "translateY(0%)",
-    from: { transform: "translateY(200%)" },
+    from: { transform: "translateY(100%)" },
     reset: resetAnimation,
     reverse: resetAnimation,
     onRest: () => {
@@ -29,6 +29,7 @@ function Details(props) {
     setResetAnimation(true);
   };
 
+ 
   return (
     <div className={classes.panel}>
       <animated.div className={classes.panelContainer} style={panelAnimation}>
@@ -42,6 +43,7 @@ function Details(props) {
         </div>
         <CountryPanelDetails country={props.country} getBordersCountries={props.getBordersCountries}></CountryPanelDetails>
       </animated.div>
+      <div className={classes.panelBackdrop} onClick={resetAnimationInverted}></div>
     </div>
   );
 }

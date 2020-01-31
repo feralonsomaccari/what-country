@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 function Footer() {
   return (
     <footer>
-      <Typography variant="body2">Webpage made by Fernando Alonso Maccari</Typography>
+      <Typography variant="body2">Webpage made by Fer Alonso Maccari</Typography>
       <Typography variant="body2">
         Powered by{" "}
         <b>

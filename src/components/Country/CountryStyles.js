@@ -48,6 +48,7 @@ export const CountryPanelStyles = makeStyles(theme => ({
     zIndex: "1300"
   },
   panelContainer: {
+    position: "absolute",
     maxWidth: "38rem",
     height: "85%",
     background: "#fff",
@@ -57,8 +58,13 @@ export const CountryPanelStyles = makeStyles(theme => ({
     right: "1rem",
     left: "1rem",
     bottom: "0%",
-    position: "absolute",
     display: "grid"
+  },
+  panelBackdrop:{
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    background: "rgb(0, 0, 0, .5)"
   },
   head: {
     position: "relative",
