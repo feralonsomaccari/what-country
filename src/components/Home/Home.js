@@ -27,6 +27,7 @@ export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
+  const [countryOpen, setCountryOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -78,9 +79,8 @@ export default function Home() {
         </List>
       </Drawer>
       <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
+        className={clsx(classes.content, {[classes.contentShift]: open}, {[classes.blockContent]: countryOpen}
+        )}
       >
         <div className={classes.mainContent}>
           <div className={classes.drawerHeader} />
@@ -91,7 +91,7 @@ export default function Home() {
           <Typography variant="body2" color="textSecondary" component="p">
             Search for any county or navigate till you find a cool looking flag
           </Typography>
-          <CountryContainer></CountryContainer>
+          <CountryContainer setCountryOpen={setCountryOpen}></CountryContainer>
         </div>
         <Footer></Footer>
       </main>

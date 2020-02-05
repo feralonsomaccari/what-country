@@ -97,7 +97,9 @@ export const CountryPanelStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main
   },
   flexSection: {
-    display: "flex"
+    display: "flex",
+    flexWrap: "wrap",
+    justiftContent: "center"
   },
   item: {
     width: "100%",

@@ -42,18 +42,20 @@ export const HomeStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -DRAWER_WIDTH
   },
+  blockContent:{
+    overflowY:"hidden",
+  },
   mainContent: {
     padding: theme.spacing(3),
     minHeight: "100%",
     marginBottom: "-10rem",
-    paddingBottom: "12rem"
+    paddingBottom: "12rem",
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
