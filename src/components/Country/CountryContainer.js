@@ -22,11 +22,11 @@ function CountryContainer(props) {
       country: country,
       elementId: elementId
     });
-    props.setCountryOpen(true);
+    // props.setCountryOpen(true);
   };
   const unselectCountry = () => {
     setSelectedCountry({});
-    props.setCountryOpen(false);
+    // props.setCountryOpen(false);
   };
 
   const getBordersCountries = alpha3Code => {

@@ -12,6 +12,9 @@ export const CountryListStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     backgroundColor: "#f2f2f2"
   },
+  loadingRow: {
+    color: "transparent"
+  },
   countryList: {
     justifyContent: "center"
   }
@@ -60,7 +63,7 @@ export const CountryPanelStyles = makeStyles(theme => ({
     bottom: "0%",
     display: "grid"
   },
-  panelBackdrop:{
+  panelBackdrop: {
     position: "absolute",
     height: "100%",
     width: "100%",
@@ -89,6 +92,9 @@ export const CountryPanelStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     backgroundColor: "#fff"
   },
+  countryCardPanel: {
+    paddingLeft: theme.spacing(4)
+  },
   separator: {
     width: "100%",
     color: "white",
@@ -99,7 +105,10 @@ export const CountryPanelStyles = makeStyles(theme => ({
   flexSection: {
     display: "flex",
     flexWrap: "wrap",
-    justiftContent: "center"
+    justiftContent: "center",
+  },
+  primaryInfo:{
+    marginTop: "1rem",
   },
   item: {
     width: "100%",
@@ -116,6 +125,20 @@ export const CountryPanelStyles = makeStyles(theme => ({
     overflowWrap: "break-word"
   },
   borderCountry: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    marginBottom: 0
+  },
+  nonBorderCountry: {
+    padding: theme.spacing(4),
+    paddingBottom: theme.spacing(2),
+  },
+  "@media (min-width: 36.875rem)": {
+    item: {
+      width: "100%",
+      paddingLeft: theme.spacing(4)
+    },
+    primaryInfo:{
+      marginTop: "0",
+    }
   }
 }));

@@ -36,7 +36,7 @@ function CountryList(props) {
                     <Country country={country} openCountry={openCountry}></Country>
                   </GridListTile>
                 ) : (
-                  <p>.</p>
+                  <p className={classes.loadingRow}>.</p>
                 );
               }}
             </VisibilitySensor>

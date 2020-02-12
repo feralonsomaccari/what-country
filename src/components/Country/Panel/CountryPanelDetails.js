@@ -21,8 +21,10 @@ function CountryDetailsPanel(props) {
   return (
     <div className={classes.contentPanel}>
       <div className={classes.flexSection}>
-        <CountryCard country={props.country} isDecoration={true}></CountryCard>
-        <div>
+        <div className={classes.countryCardPanel}>
+          <CountryCard country={props.country} isDecoration={true} ></CountryCard>
+        </div>
+        <div className={classes.primaryInfo}>
           <Typography className={classes.item} variant="h5">
             {props.country.nativeName}
           </Typography>
@@ -71,7 +73,7 @@ function CountryDetailsPanel(props) {
           ))}
         </div>
       ) : (
-        <div className={classes.borderCountry}>This country has no borders</div>
+        <div className={(classes.borderCountry, classes.nonBorderCountry)}>This country has no borders</div>
       )}
 
       {/* MISCELLANEOUS INFO */}
