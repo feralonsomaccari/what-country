@@ -21,14 +21,14 @@ function CountryList(props) {
   let countries = props.countries.filter(country => {
     return country.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
   });
-
   return (
     <>
       <Filter filter={filter} setFilter={setFilter}></Filter>
       <hr />
       <GridList cellHeight={160} className={classes.countryList}>
         {countries.map((country, i) => (
-          <div key={i} className={classes.row}>
+          
+          <div key={country.alpha3Code} className={classes.row}>
             <VisibilitySensor partialVisibility>
               {({ isVisible }) => {
                 return isVisible ? (
