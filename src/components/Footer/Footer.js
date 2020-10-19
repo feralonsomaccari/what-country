@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <Typography variant="body2">Webpage made by Fer Alonso Maccari</Typography>

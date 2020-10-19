@@ -9,9 +9,8 @@ import { CountryListStyles } from "./CountryStyles";
 
 const useStyles = CountryListStyles;
 
-function CountryList(props) {
+const CountryList = (props) => {
   const classes = useStyles();
-
   const [filter, setFilter] = useState("");
 
   const openCountry = (country, element) => {

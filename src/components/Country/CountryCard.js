@@ -3,7 +3,7 @@ import { CountryCardStyles } from "./CountryStyles";
 
 const useStyles = CountryCardStyles;
 
-export default function CountryCard(props) {
+const CountryCard = (props) => {
   const classes = useStyles();
 
   const handlerOnClick = e => {
@@ -19,3 +19,5 @@ export default function CountryCard(props) {
     ></button>
   );
 }
+
+export default CountryCard

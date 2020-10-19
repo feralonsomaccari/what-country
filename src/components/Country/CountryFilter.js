@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 
-function Filter(props) {
+const Filter = (props) => {
   return (
     <>
       <Grid container component="main">

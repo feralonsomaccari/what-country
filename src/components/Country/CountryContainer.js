@@ -3,7 +3,7 @@ import GetCountriesService from "../../services/country.service";
 import CountryList from "./CountryList";
 import CountryPanel from "./Panel/CountryPanel";
 
-function CountryContainer(props) {
+const CountryContainer = (props) => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState({});
 
@@ -39,6 +39,7 @@ function CountryContainer(props) {
     getCountries();
   }, []);
 
+
   return (
     <>
       <CountryList countries={countries} selectCountry={selectCountry}></CountryList>
@@ -59,7 +60,10 @@ function CountryContainer(props) {
 
 export default CountryContainer;
 
-/* Basic method of Listing the Json of Countries, this is simple but very slow, the idea is to replace this
+
+/* THIS IS AND EXAMPLE OF WHAT I WANT TO AVOID 
+   Basic method of Listing the Json of Countries, this is simple but very slow, the idea is to replace this
+
   <div>
     <GridList cols={5} cellHeight="auto" spacing={25}>
       {drawItems.map((country, i) => (

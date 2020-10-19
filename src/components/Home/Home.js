@@ -23,7 +23,7 @@ import { HomeStyles } from "./HomeStyles";
 
 const useStyles = HomeStyles;
 
-export default function Home() {
+const Home = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
@@ -98,3 +98,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home

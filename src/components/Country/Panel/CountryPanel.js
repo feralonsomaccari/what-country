@@ -8,7 +8,7 @@ import CountryPanelDetails from "./CountryPanelDetails";
 
 const useStyles = CountryPanelStyles;
 
-function Details(props) {
+const Details = (props) => {
   const classes = useStyles();
 
   const [resetAnimation, setResetAnimation] = useState(false);

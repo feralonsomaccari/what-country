@@ -6,7 +6,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = CountryPanelStyles;
 
-function CountryDetailsPanel(props) {
+const CountryDetailsPanel = (props) => {
   const classes = useStyles();
   const [borders, setBorders] = useState([]);
 
