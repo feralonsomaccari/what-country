@@ -3,7 +3,7 @@ import GetCountriesService from "../../services/country.service";
 import CountryList from "./CountryList";
 import CountryPanel from "./Panel/CountryPanel";
 
-const CountryContainer = (props) => {
+const CountryContainer = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState({});
 
@@ -22,11 +22,9 @@ const CountryContainer = (props) => {
       country: country,
       elementId: elementId
     });
-    // props.setCountryOpen(true);
   };
   const unselectCountry = () => {
     setSelectedCountry({});
-    // props.setCountryOpen(false);
   };
 
   const getBordersCountries = alpha3Code => {
@@ -34,7 +32,6 @@ const CountryContainer = (props) => {
     return borderCountry[0];
   };
 
-  // Like ComponentDidMount
   useEffect(() => {
     getCountries();
   }, []);

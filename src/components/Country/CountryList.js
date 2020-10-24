@@ -3,13 +3,14 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridList";
 import VisibilitySensor from "react-visibility-sensor";
 
-import Country from "./CountryCard";
+import CountryCard from "./CountryCard";
 import Filter from "./CountryFilter";
 import { CountryListStyles } from "./CountryStyles";
 
 const useStyles = CountryListStyles;
 
 const CountryList = (props) => {
+
   const classes = useStyles();
   const [filter, setFilter] = useState("");
 
@@ -24,15 +25,15 @@ const CountryList = (props) => {
     <>
       <Filter filter={filter} setFilter={setFilter}></Filter>
       <hr />
-      <GridList cellHeight={160} className={classes.countryList}>
+      <GridList cellHeight={160} className={classes.countryList} id="country-list">
         {countries.map((country, i) => (
           
-          <div key={country.alpha3Code} className={classes.row}>
-            <VisibilitySensor partialVisibility>
+          <div key={country.alpha3Code} className={classes.row} >
+            <VisibilitySensor partialVisibility className="countrycard">
               {({ isVisible }) => {
                 return isVisible ? (
                   <GridListTile>
-                    <Country country={country} openCountry={openCountry}></Country>
+                    <CountryCard country={country} openCountry={openCountry}></CountryCard>
                   </GridListTile>
                 ) : (
                   <p className={classes.loadingRow}>.</p>

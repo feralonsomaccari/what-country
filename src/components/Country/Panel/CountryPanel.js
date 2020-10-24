@@ -8,9 +8,8 @@ import CountryPanelDetails from "./CountryPanelDetails";
 
 const useStyles = CountryPanelStyles;
 
-const Details = (props) => {
+const CountryPanel = (props) => {
   const classes = useStyles();
-
   const [resetAnimation, setResetAnimation] = useState(false);
 
   const panelAnimation = useSpring({
@@ -29,7 +28,6 @@ const Details = (props) => {
     setResetAnimation(true);
   };
 
- 
   return (
     <div className={classes.panel}>
       <animated.div className={classes.panelContainer} style={panelAnimation}>
@@ -37,7 +35,7 @@ const Details = (props) => {
           <IconButton onClick={resetAnimationInverted}>
             <ArrowBackIcon fontSize="large" className={classes.arrowBack} />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title} id="country-name">
             {props.country.name}
           </Typography>
         </div>
@@ -48,4 +46,4 @@ const Details = (props) => {
   );
 }
 
-export default Details;
+export default CountryPanel;

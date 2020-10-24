@@ -8,7 +8,7 @@ const Footer = () => {
       <Typography variant="body2">
         Powered by{" "}
         <b>
-          <a href="https://restcountries.eu/" target="_blank" rel="noopener noreferrer">
+          <a href="https://restcountries.eu/" id="api-link" target="_blank" rel="noopener noreferrer">
             'Rest Countries'
           </a>
         </b>
@@ -16,7 +16,7 @@ const Footer = () => {
       <Typography variant="body2">
         Github{" "}
         <b>
-          <a href="https://github.com/feralonsomaccari/what-country" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/feralonsomaccari/what-country" id="github-link" target="_blank" rel="noopener noreferrer">
             page
           </a>
         </b>
