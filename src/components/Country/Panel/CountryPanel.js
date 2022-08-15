@@ -8,7 +8,7 @@ import CountryPanelDetails from "./CountryPanelDetails";
 
 const useStyles = CountryPanelStyles;
 
-const CountryPanel = (props) => {
+const CountryPanel = ({country, getBorderCountries = () => '', unselectCountry = () => ''}) => {
   const classes = useStyles();
   const [resetAnimation, setResetAnimation] = useState(false);
 
@@ -19,7 +19,7 @@ const CountryPanel = (props) => {
     reverse: resetAnimation,
     onRest: () => {
       if (resetAnimation) {
-        props.unselectCountry();
+        unselectCountry();
       }
     }
   });
@@ -36,10 +36,10 @@ const CountryPanel = (props) => {
             <ArrowBackIcon fontSize="large" className={classes.arrowBack} />
           </IconButton>
           <Typography variant="h6" className={classes.title} id="country-name">
-            {props.country.name}
+            {country.name.common}
           </Typography>
         </div>
-        <CountryPanelDetails country={props.country} getBordersCountries={props.getBordersCountries}></CountryPanelDetails>
+        <CountryPanelDetails country={country} getBorderCountries={getBorderCountries}></CountryPanelDetails>
       </animated.div>
       <div className={classes.panelBackdrop} onClick={resetAnimationInverted}></div>
     </div>

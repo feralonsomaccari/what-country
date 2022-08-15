@@ -9,26 +9,25 @@ import { CountryListStyles } from "./CountryStyles";
 
 const useStyles = CountryListStyles;
 
-const CountryList = (props) => {
+const CountryList = ({countries, selectCountry = () => ''}) => {
 
   const classes = useStyles();
   const [filter, setFilter] = useState("");
 
   const openCountry = (country, element) => {
-    props.selectCountry(country, element.getBoundingClientRect(), element.id);
+    selectCountry(country, element.getBoundingClientRect(), element.id);
   };
 
-  let countries = props.countries.filter(country => {
-    return country.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
-  });
+  const countryList =countries.filter(country => country.name.common.toLowerCase().indexOf(filter.toLowerCase()) !== -1 );
+
   return (
     <>
       <Filter filter={filter} setFilter={setFilter}></Filter>
       <hr />
       <GridList cellHeight={160} className={classes.countryList} id="country-list">
-        {countries.map((country, i) => (
+        {countryList.map((country, i) => (
           
-          <div key={country.alpha3Code} className={classes.row} >
+          <div key={country.cca3} className={classes.row} >
             <VisibilitySensor partialVisibility className="countrycard">
               {({ isVisible }) => {
                 return isVisible ? (

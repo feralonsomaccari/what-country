@@ -17,7 +17,7 @@ const CountryCard = (props) => {
       type="button"
       className={classes.countryButton}
       onClick={e => handlerOnClick(e)}
-      style={{ backgroundImage: `url(${props.country.flag})` }}
+      style={{ backgroundImage: `url(${props.country.flags.svg})` }}
     ></button>
   );
 }

@@ -7,15 +7,6 @@ const CountryContainer = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState({});
 
-  const getCountries = () => {
-    let countriesPromise = new Promise((resolve, reject) => {
-      GetCountriesService("", resolve, reject);
-    });
-    countriesPromise.then(response => {
-      setCountries(response);
-    });
-  };
-
   const selectCountry = (country, flagOriginPosition, elementId) => {
     setSelectedCountry({
       show: true,
@@ -27,13 +18,17 @@ const CountryContainer = () => {
     setSelectedCountry({});
   };
 
-  const getBordersCountries = alpha3Code => {
-    let borderCountry = countries.filter(country => country.alpha3Code.includes(alpha3Code));
-    return borderCountry[0];
-  };
+  // const getBorderCountries = alpha3Code => {
+  //   const borderCountry = countries.filter(country => country.alpha3Code.includes(alpha3Code));
+  //   return borderCountry[0];
+  // };
 
   useEffect(() => {
-    getCountries();
+    const fetchCounties = async () => {
+      const countries = await GetCountriesService() || [];
+      setCountries(countries);
+    }
+    fetchCounties().catch(console.error);
   }, []);
 
 
@@ -43,7 +38,7 @@ const CountryContainer = () => {
       {selectedCountry.show && (
         <CountryPanel
           unselectCountry={unselectCountry}
-          getBordersCountries={getBordersCountries}
+          //getBorderCountries={getBorderCountries}
           country={selectedCountry.country}
           show={selectedCountry.show}
           flagWidth={selectedCountry.flagWidth}

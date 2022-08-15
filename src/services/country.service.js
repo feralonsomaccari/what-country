@@ -1,13 +1,13 @@
-function GetCountriesService(name, resolve, reject) {
-  let url = "https://restcountries.eu/rest/v2/all";
+const GetCountriesService = async () => {
   // if (name) url = "https://restcountries.eu/rest/v2/name/" + name; // This is if I want to fetch an especific country in te future
-  fetch(url)
+  let url = "https://restcountries.com/v3.1/all";
+  return await fetch(url)
     .then(res => res.json())
     .then(data => {
-      resolve(data);
+      return data;
     })
-    .catch(data => {
-      reject(data);
+    .catch(err => {
+      return err;
     });
 }
 
