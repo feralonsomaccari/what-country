@@ -8,7 +8,7 @@ const Footer = () => {
       <Typography variant="body2">
         Powered by{" "}
         <b>
-          <a href="https://restcountries.eu/" id="api-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://restcountries.com/" id="api-link" target="_blank" rel="noopener noreferrer">
             'Rest Countries'
           </a>
         </b>

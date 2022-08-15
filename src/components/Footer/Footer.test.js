@@ -8,7 +8,7 @@ describe("<Footer/>", () => {
 
     it("api link should have corrrect href attribute", () => {
         const link = wrapper.find("a#api-link").prop("href");
-        expect(link).toBe("https://restcountries.eu/")
+        expect(link).toBe("https://restcountries.com/")
     })
     
     it("github link should have correct href attribute", () => {
