@@ -268,6 +268,11 @@ describe("<CountryPanelDetails/>", () => {
   })
 
   it("should render country's borders", () => {
+    // const borders = wrapper.find("#borders")
+    // console.log(borders.debug())
+  })
+
+  it("should render country's population", () => {
     const population = wrapper.find("#population").text()
     expect(population).toBe("Population: 1,315,944")
   })

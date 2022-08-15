@@ -10,11 +10,13 @@ const CountryDetailsPanel = (props) => {
   const classes = useStyles();
   const [borders, setBorders] = useState([]);
 
+
   useEffect(() => {
     let borderArray = [];
     props.country.borders.map(border => {
       return borderArray.push(props.getBordersCountries(border));
     });
+    console.log(borderArray)
     setBorders(borderArray);
   }, [props]);
 
@@ -35,8 +37,8 @@ const CountryDetailsPanel = (props) => {
               Capital: {props.country.capital}
             </Typography>
           ) : (
-            <div>{null}</div>
-          )}
+              <div>{null}</div>
+            )}
 
           <Typography className={classes.item} variant="body1" id="demonym">
             Demonym: {props.country.demonym}
@@ -50,12 +52,12 @@ const CountryDetailsPanel = (props) => {
           <Typography className={classes.item} variant="body1" id="languages">
             Languages:
             {props.country.languages.map((language, i) => (
-              <span key={i}>
-                {" "}
-                {language.name}
-                {i < props.country.languages.length - 1 ? "," : ""}
-              </span>
-            ))}
+            <span key={i}>
+              {" "}
+              {language.name}
+              {i < props.country.languages.length - 1 ? "," : ""}
+            </span>
+          ))}
           </Typography>
         </div>
       </div>
@@ -67,14 +69,14 @@ const CountryDetailsPanel = (props) => {
         </Typography>
       </div>
       {props.country.borders.length ? (
-        <div className={classes.borderCountriesContainer}  >
+        <div className={classes.borderCountriesContainer} id="borders">
           {borders.map((border, i) => (
-            <Avatar title={border.name} src={border.flag} className={`${classes.bigAvatar} ${classes.borderCountry}`} key={i}  />
+            <Avatar title={border.name} src={border.flag} className={`${classes.bigAvatar} ${classes.borderCountry}`} key={i} />
           ))}
         </div>
       ) : (
-        <div className={(classes.borderCountry, classes.nonBorderCountry)}>This country has no borders</div>
-      )}
+          <div className={(classes.borderCountry, classes.nonBorderCountry)}>This country has no borders</div>
+        )}
 
       {/* MISCELLANEOUS INFO */}
       <div className={classes.separator}>
@@ -90,12 +92,12 @@ const CountryDetailsPanel = (props) => {
         <Typography className={classes.item} variant="body1" id="timezones">
           Timezones:
           {props.country.timezones.map((timezone, i) => (
-            <span key={i}>
-              {" "}
-              {timezone}
-              {i < props.country.timezones.length - 1 ? "," : ""}
-            </span>
-          ))}
+          <span key={i}>
+            {" "}
+            {timezone}
+            {i < props.country.timezones.length - 1 ? "," : ""}
+          </span>
+        ))}
         </Typography>
         <Typography className={classes.item} variant="body1" id="latitude">
           Latitude: {props.country.latlng[0]}
