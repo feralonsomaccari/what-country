@@ -3,241 +3,417 @@ import { shallow, mount } from "enzyme"
 import CountryPanelDetails from "./CountryPanelDetails"
 
 const countryMockJson = {
-  "name": "Estonia",
-  "topLevelDomain": [
-    ".ee"
+  "name": {
+      "common": "Estonia",
+      "official": "Republic of Estonia",
+      "nativeName": {
+          "est": {
+              "official": "Eesti Vabariik",
+              "common": "Eesti"
+          }
+      }
+  },
+  "tld": [
+      ".ee"
   ],
-  "alpha2Code": "EE",
-  "alpha3Code": "EST",
-  "callingCodes": [
-    "372"
+  "cca2": "EE",
+  "ccn3": "233",
+  "cca3": "EST",
+  "cioc": "EST",
+  "independent": true,
+  "status": "officially-assigned",
+  "unMember": true,
+  "currencies": {
+      "EUR": {
+          "name": "Euro",
+          "symbol": "€"
+      }
+  },
+  "idd": {
+      "root": "+3",
+      "suffixes": [
+          "72"
+      ]
+  },
+  "capital": [
+      "Tallinn"
   ],
-  "capital": "Tallinn",
   "altSpellings": [
-    "EE",
-    "Eesti",
-    "Republic of Estonia",
-    "Eesti Vabariik"
+      "EE",
+      "Eesti",
+      "Republic of Estonia",
+      "Eesti Vabariik"
   ],
   "region": "Europe",
   "subregion": "Northern Europe",
-  "population": 1315944,
+  "languages": {
+      "est": "Estonian"
+  },
+  "translations": {
+      "ara": {
+          "official": "جمهورية إستونيا",
+          "common": "إستونيا"
+      },
+      "ces": {
+          "official": "Estonská republika",
+          "common": "Estonsko"
+      },
+      "cym": {
+          "official": "Gweriniaeth Estonia",
+          "common": "Estonia"
+      },
+      "deu": {
+          "official": "Republik Estland",
+          "common": "Estland"
+      },
+      "est": {
+          "official": "Eesti Vabariik",
+          "common": "Eesti"
+      },
+      "fin": {
+          "official": "Viron tasavalta",
+          "common": "Viro"
+      },
+      "fra": {
+          "official": "République d'Estonie",
+          "common": "Estonie"
+      },
+      "hrv": {
+          "official": "Republika Estonija",
+          "common": "Estonija"
+      },
+      "hun": {
+          "official": "Észt Köztársaság",
+          "common": "Észtország"
+      },
+      "ita": {
+          "official": "Repubblica di Estonia",
+          "common": "Estonia"
+      },
+      "jpn": {
+          "official": "エストニア共和国",
+          "common": "エストニア"
+      },
+      "kor": {
+          "official": "에스토니아 공화국",
+          "common": "에스토니아"
+      },
+      "nld": {
+          "official": "Republiek Estland",
+          "common": "Estland"
+      },
+      "per": {
+          "official": "جمهوری استونی",
+          "common": "اِستونی"
+      },
+      "pol": {
+          "official": "Republika Estońska",
+          "common": "Estonia"
+      },
+      "por": {
+          "official": "República da Estónia",
+          "common": "Estónia"
+      },
+      "rus": {
+          "official": "Эстонская Республика",
+          "common": "Эстония"
+      },
+      "slk": {
+          "official": "Estónska republika",
+          "common": "Estónsko"
+      },
+      "spa": {
+          "official": "República de Estonia",
+          "common": "Estonia"
+      },
+      "swe": {
+          "official": "Republiken Estland",
+          "common": "Estland"
+      },
+      "urd": {
+          "official": "جمہوریہ اسٹونیا",
+          "common": "اسٹونیا"
+      },
+      "zho": {
+          "official": "爱沙尼亚共和国",
+          "common": "爱沙尼亚"
+      }
+  },
   "latlng": [
-    59,
-    26
+      59,
+      26
   ],
-  "demonym": "Estonian",
+  "landlocked": false,
+  "borders": [
+      "LVA",
+      "RUS"
+  ],
   "area": 45227,
-  "gini": 36,
-  "timezones": [
-    "UTC+02:00"
-  ],
-  "borders": [
-    "LVA",
-    "RUS"
-  ],
-  "nativeName": "Eesti",
-  "numericCode": "233",
-  "currencies": [
-    {
-      "code": "EUR",
-      "name": "Euro",
-      "symbol": "€"
-    }
-  ],
-  "languages": [
-    {
-      "iso639_1": "et",
-      "iso639_2": "est",
-      "name": "Estonian",
-      "nativeName": "eesti"
-    }
-  ],
-  "translations": {
-    "de": "Estland",
-    "es": "Estonia",
-    "fr": "Estonie",
-    "ja": "エストニア",
-    "it": "Estonia",
-    "br": "Estônia",
-    "pt": "Estónia",
-    "nl": "Estland",
-    "hr": "Estonija",
-    "fa": "استونی"
+  "demonyms": {
+      "eng": {
+          "f": "Estonian",
+          "m": "Estonian"
+      },
+      "fra": {
+          "f": "Estonienne",
+          "m": "Estonien"
+      }
   },
-  "flag": "https://restcountries.eu/data/est.svg",
-  "regionalBlocs": [
-    {
-      "acronym": "EU",
-      "name": "European Union",
-      "otherAcronyms": [],
-      "otherNames": []
-    }
+  "flag": "🇪🇪",
+  "maps": {
+      "googleMaps": "https://goo.gl/maps/6SsynwGUodL1sDvq8",
+      "openStreetMaps": "https://www.openstreetmap.org/relation/79510"
+  },
+  "population": 1331057,
+  "gini": {
+      "2018": 30.3
+  },
+  "fifa": "EST",
+  "car": {
+      "signs": [
+          "EST"
+      ],
+      "side": "right"
+  },
+  "timezones": [
+      "UTC+02:00"
   ],
-  "cioc": "EST"
+  "continents": [
+      "Europe"
+  ],
+  "flags": {
+      "png": "https://flagcdn.com/w320/ee.png",
+      "svg": "https://flagcdn.com/ee.svg"
+  },
+  "coatOfArms": {
+      "png": "https://mainfacts.com/media/images/coats_of_arms/ee.png",
+      "svg": "https://mainfacts.com/media/images/coats_of_arms/ee.svg"
+  },
+  "startOfWeek": "monday",
+  "capitalInfo": {
+      "latlng": [
+          59.43,
+          24.72
+      ]
+  },
+  "postalCode": {
+      "format": "#####",
+      "regex": "^(\\d{5})$"
+  }
 }
+
 const countries = [{
-  "name": "Latvia",
-  "topLevelDomain": [
-    ".lv"
-  ],
-  "alpha2Code": "LV",
-  "alpha3Code": "LVA",
-  "callingCodes": [
-    "371"
-  ],
-  "capital": "Riga",
-  "altSpellings": [
-    "LV",
-    "Republic of Latvia",
-    "Latvijas Republika"
-  ],
-  "region": "Europe",
-  "subregion": "Northern Europe",
-  "population": 1961600,
-  "latlng": [
-    57,
-    25
-  ],
-  "demonym": "Latvian",
-  "area": 64559,
-  "gini": 36.6,
-  "timezones": [
-    "UTC+02:00"
-  ],
-  "borders": [
-    "BLR",
-    "EST",
-    "LTU",
-    "RUS"
-  ],
-  "nativeName": "Latvija",
-  "numericCode": "428",
-  "currencies": [
-    {
-      "code": "EUR",
-      "name": "Euro",
-      "symbol": "€"
+    "name": {
+        "common": "Latvia",
+        "official": "Republic of Latvia",
+        "nativeName": {
+            "lav": {
+                "official": "Latvijas Republikas",
+                "common": "Latvija"
+            }
+        }
+    },
+    "tld": [
+        ".lv"
+    ],
+    "cca2": "LV",
+    "ccn3": "428",
+    "cca3": "LVA",
+    "cioc": "LAT",
+    "independent": true,
+    "status": "officially-assigned",
+    "unMember": true,
+    "currencies": {
+        "EUR": {
+            "name": "Euro",
+            "symbol": "€"
+        }
+    },
+    "idd": {
+        "root": "+3",
+        "suffixes": [
+            "71"
+        ]
+    },
+    "capital": [
+        "Riga"
+    ],
+    "altSpellings": [
+        "LV",
+        "Republic of Latvia",
+        "Latvijas Republika"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe",
+    "languages": {
+        "lav": "Latvian"
+    },
+    "translations": {
+        "ara": {
+            "official": "جمهورية لاتفيا",
+            "common": "لاتفيا"
+        },
+        "ces": {
+            "official": "Lotyšská republika",
+            "common": "Lotyšsko"
+        },
+        "cym": {
+            "official": "Republic of Latvia",
+            "common": "Latvia"
+        },
+        "deu": {
+            "official": "Republik Lettland",
+            "common": "Lettland"
+        },
+        "est": {
+            "official": "Läti Vabariik",
+            "common": "Läti"
+        },
+        "fin": {
+            "official": "Latvian tasavalta",
+            "common": "Latvia"
+        },
+        "fra": {
+            "official": "République de Lettonie",
+            "common": "Lettonie"
+        },
+        "hrv": {
+            "official": "Republika Latvija",
+            "common": "Latvija"
+        },
+        "hun": {
+            "official": "Lett Köztársaság",
+            "common": "Lettország"
+        },
+        "ita": {
+            "official": "Repubblica di Lettonia",
+            "common": "Lettonia"
+        },
+        "jpn": {
+            "official": "ラトビア共和国",
+            "common": "ラトビア"
+        },
+        "kor": {
+            "official": "라트비아 공화국",
+            "common": "라트비아"
+        },
+        "nld": {
+            "official": "Republiek Letland",
+            "common": "Letland"
+        },
+        "per": {
+            "official": "جمهوری لتونی",
+            "common": "لتونی"
+        },
+        "pol": {
+            "official": "Republika Łotewska",
+            "common": "Łotwa"
+        },
+        "por": {
+            "official": "República da Letónia",
+            "common": "Letónia"
+        },
+        "rus": {
+            "official": "Латвийская Республика",
+            "common": "Латвия"
+        },
+        "slk": {
+            "official": "Lotyšská republika",
+            "common": "Lotyšsko"
+        },
+        "spa": {
+            "official": "República de Letonia",
+            "common": "Letonia"
+        },
+        "swe": {
+            "official": "Republiken Lettland",
+            "common": "Lettland"
+        },
+        "urd": {
+            "official": "جمہوریہ لٹویا",
+            "common": "لٹویا"
+        },
+        "zho": {
+            "official": "拉脱维亚共和国",
+            "common": "拉脱维亚"
+        }
+    },
+    "latlng": [
+        57,
+        25
+    ],
+    "landlocked": false,
+    "borders": [
+        "BLR",
+        "EST",
+        "LTU",
+        "RUS"
+    ],
+    "area": 64559,
+    "demonyms": {
+        "eng": {
+            "f": "Latvian",
+            "m": "Latvian"
+        },
+        "fra": {
+            "f": "Lettone",
+            "m": "Letton"
+        }
+    },
+    "flag": "🇱🇻",
+    "maps": {
+        "googleMaps": "https://goo.gl/maps/iQpUkH7ghq31ZtXe9",
+        "openStreetMaps": "https://www.openstreetmap.org/relation/72594"
+    },
+    "population": 1901548,
+    "gini": {
+        "2018": 35.1
+    },
+    "fifa": "LVA",
+    "car": {
+        "signs": [
+            "LV"
+        ],
+        "side": "right"
+    },
+    "timezones": [
+        "UTC+02:00"
+    ],
+    "continents": [
+        "Europe"
+    ],
+    "flags": {
+        "png": "https://flagcdn.com/w320/lv.png",
+        "svg": "https://flagcdn.com/lv.svg"
+    },
+    "coatOfArms": {
+        "png": "https://mainfacts.com/media/images/coats_of_arms/lv.png",
+        "svg": "https://mainfacts.com/media/images/coats_of_arms/lv.svg"
+    },
+    "startOfWeek": "monday",
+    "capitalInfo": {
+        "latlng": [
+            56.95,
+            24.1
+        ]
+    },
+    "postalCode": {
+        "format": "LV-####",
+        "regex": "^(?:LV)*(\\d{4})$"
     }
-  ],
-  "languages": [
-    {
-      "iso639_1": "lv",
-      "iso639_2": "lav",
-      "name": "Latvian",
-      "nativeName": "latviešu valoda"
-    }
-  ],
-  "translations": {
-    "de": "Lettland",
-    "es": "Letonia",
-    "fr": "Lettonie",
-    "ja": "ラトビア",
-    "it": "Lettonia",
-    "br": "Letônia",
-    "pt": "Letónia",
-    "nl": "Letland",
-    "hr": "Latvija",
-    "fa": "لتونی"
-  },
-  "flag": "https://restcountries.eu/data/lva.svg",
-  "regionalBlocs": [
-    {
-      "acronym": "EU",
-      "name": "European Union",
-      "otherAcronyms": [],
-      "otherNames": []
-    }
-  ],
-  "cioc": "LAT"
-},
-{
-  "name": "Latvia",
-  "topLevelDomain": [
-    ".lv"
-  ],
-  "alpha2Code": "LV",
-  "alpha3Code": "LVA",
-  "callingCodes": [
-    "371"
-  ],
-  "capital": "Riga",
-  "altSpellings": [
-    "LV",
-    "Republic of Latvia",
-    "Latvijas Republika"
-  ],
-  "region": "Europe",
-  "subregion": "Northern Europe",
-  "population": 1961600,
-  "latlng": [
-    57,
-    25
-  ],
-  "demonym": "Latvian",
-  "area": 64559,
-  "gini": 36.6,
-  "timezones": [
-    "UTC+02:00"
-  ],
-  "borders": [
-    "BLR",
-    "EST",
-    "LTU",
-    "RUS"
-  ],
-  "nativeName": "Latvija",
-  "numericCode": "428",
-  "currencies": [
-    {
-      "code": "EUR",
-      "name": "Euro",
-      "symbol": "€"
-    }
-  ],
-  "languages": [
-    {
-      "iso639_1": "lv",
-      "iso639_2": "lav",
-      "name": "Latvian",
-      "nativeName": "latviešu valoda"
-    }
-  ],
-  "translations": {
-    "de": "Lettland",
-    "es": "Letonia",
-    "fr": "Lettonie",
-    "ja": "ラトビア",
-    "it": "Lettonia",
-    "br": "Letônia",
-    "pt": "Letónia",
-    "nl": "Letland",
-    "hr": "Latvija",
-    "fa": "لتونی"
-  },
-  "flag": "https://restcountries.eu/data/lva.svg",
-  "regionalBlocs": [
-    {
-      "acronym": "EU",
-      "name": "European Union",
-      "otherAcronyms": [],
-      "otherNames": []
-    }
-  ],
-  "cioc": "LAT"
 }]
 
-const getBordersCountries = alpha3Code => {
-  let borderCountry = countries.filter(country => country.alpha3Code.includes(alpha3Code));
-  return borderCountry[0];
-};
+// const getBordersCountries = alpha3Code => {
+//   let borderCountry = countries.filter(country => country.alpha3Code.includes(alpha3Code));
+//   return borderCountry[0];
+// };
 
 describe("<CountryPanelDetails/>", () => {
-  const wrapper = shallow(<CountryPanelDetails country={countryMockJson} getBordersCountries={getBordersCountries} />);
+  const wrapper = shallow(<CountryPanelDetails country={countryMockJson} />);
 
   it("should render country name", () => {
     const nativeName = wrapper.find("#native-name").text();
-    expect(nativeName).toBe("Eesti")
+    expect(nativeName).toBe("Estonia")
   })
 
   it("should render country's capital", () => {
@@ -267,15 +443,10 @@ describe("<CountryPanelDetails/>", () => {
     expect(language1).toBe("Languages: Estonian")
   })
 
-  it("should render country's borders", () => {
+  //it("should render country's borders", () => {
     // const borders = wrapper.find("#borders")
     // console.log(borders.debug())
-  })
-
-  it("should render country's population", () => {
-    const population = wrapper.find("#population").text()
-    expect(population).toBe("Population: 1,315,944")
-  })
+  //})
 
   it("should render country's timezones", () => {
     const timezones = wrapper.find("#timezones")
@@ -298,11 +469,6 @@ describe("<CountryPanelDetails/>", () => {
     expect(currency).toBe("Currency: Euro")
   })
 
-  it("should render country's currency code", () => {
-    const currencyCode = wrapper.find("#currency-code").text()
-    expect(currencyCode).toBe("Currency Code: EUR")
-
-  })
   it("should render country's currency symbol", () => {
     const currencySymbol = wrapper.find("#currency-symbol").text()
     expect(currencySymbol).toBe("Currency Symbol: €")
