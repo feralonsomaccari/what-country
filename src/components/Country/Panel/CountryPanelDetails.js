@@ -9,8 +9,6 @@ const useStyles = CountryPanelStyles;
 const CountryDetailsPanel = ({country, getBorderCountries = () => ''}) => {
   const classes = useStyles();
   const [borders, setBorders] = useState([]);
-  console.log(country)
-
 
   useEffect(() => {
     // const borderArray = [];
