@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/minecraft-server-check/static/css/main.81837f48.chunk.css",
-    "main.js": "/minecraft-server-check/static/js/main.d7e29fbb.chunk.js",
-    "main.js.map": "/minecraft-server-check/static/js/main.d7e29fbb.chunk.js.map",
-    "runtime-main.js": "/minecraft-server-check/static/js/runtime-main.f85fca39.js",
-    "runtime-main.js.map": "/minecraft-server-check/static/js/runtime-main.f85fca39.js.map",
-    "static/js/2.2a7a4589.chunk.js": "/minecraft-server-check/static/js/2.2a7a4589.chunk.js",
-    "static/js/2.2a7a4589.chunk.js.map": "/minecraft-server-check/static/js/2.2a7a4589.chunk.js.map",
-    "index.html": "/minecraft-server-check/index.html",
-    "precache-manifest.242dacffa213fbf93532bd632c7b061d.js": "/minecraft-server-check/precache-manifest.242dacffa213fbf93532bd632c7b061d.js",
-    "service-worker.js": "/minecraft-server-check/service-worker.js",
-    "static/css/main.81837f48.chunk.css.map": "/minecraft-server-check/static/css/main.81837f48.chunk.css.map",
-    "static/js/2.2a7a4589.chunk.js.LICENSE.txt": "/minecraft-server-check/static/js/2.2a7a4589.chunk.js.LICENSE.txt"
+    "main.css": "/what-country/static/css/main.81837f48.chunk.css",
+    "main.js": "/what-country/static/js/main.1c2d5b17.chunk.js",
+    "main.js.map": "/what-country/static/js/main.1c2d5b17.chunk.js.map",
+    "runtime-main.js": "/what-country/static/js/runtime-main.f339d295.js",
+    "runtime-main.js.map": "/what-country/static/js/runtime-main.f339d295.js.map",
+    "static/js/2.2a7a4589.chunk.js": "/what-country/static/js/2.2a7a4589.chunk.js",
+    "static/js/2.2a7a4589.chunk.js.map": "/what-country/static/js/2.2a7a4589.chunk.js.map",
+    "index.html": "/what-country/index.html",
+    "precache-manifest.f5296e38691e433f6b876391ad9d6add.js": "/what-country/precache-manifest.f5296e38691e433f6b876391ad9d6add.js",
+    "service-worker.js": "/what-country/service-worker.js",
+    "static/css/main.81837f48.chunk.css.map": "/what-country/static/css/main.81837f48.chunk.css.map",
+    "static/js/2.2a7a4589.chunk.js.LICENSE.txt": "/what-country/static/js/2.2a7a4589.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f85fca39.js",
+    "static/js/runtime-main.f339d295.js",
     "static/js/2.2a7a4589.chunk.js",
     "static/css/main.81837f48.chunk.css",
-    "static/js/main.d7e29fbb.chunk.js"
+    "static/js/main.1c2d5b17.chunk.js"
   ]
 }
